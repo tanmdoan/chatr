@@ -14,6 +14,10 @@ Ruby 2.7.1
 
     $ rake db:prepare
 
+or
+    
+    $ rake db:setup && rake db:migrate
+
 ## Run the app
 
     $ rails s
