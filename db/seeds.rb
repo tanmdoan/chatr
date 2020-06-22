@@ -11,6 +11,12 @@
 
 puts "Destroying previous seeds..."
 
+ActiveRecord::Base.connection.tables.each do |t|
+  ActiveRecord::Base.connection.reset_pk_sequence!(t)
+end
+
+puts "Resetting db primary keys..."
+
 jon = User.create!(name: 'Jon Snow')
 white_walker = User.create!(name: 'Ice King')
 
