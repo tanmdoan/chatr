@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 #
+
+[User, Message].each(&:destroy_all)
+
+puts "Destroying previous seeds..."
+
 jon = User.create!(name: 'Jon Snow')
 white_walker = User.create!(name: 'Ice King')
 
@@ -18,8 +23,8 @@ end
 end
 
 100.times do
-  Message.create!(recipient: white_walker, sender: jon, body: 'Stale messages: Jon paging White Walker ')
+  Message.create!(recipient: white_walker, sender: jon, body: 'Stale messages: Jon paging White Walker', created_at: 50.days.ago)
 end
 
-puts "Finished seeding all messages.."
+puts "Finished seeding all messages..."
 
