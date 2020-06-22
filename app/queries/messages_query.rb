@@ -14,7 +14,7 @@ class MessagesQuery
 
   def resolve
     scope = relation
-    return scope.fresh if filters.empty?
+    return scope.within_thirty_days if filters.empty?
 
     apply_filter(scope, :limit)
       .then { |scope| apply_filter(scope, :recipient_id) }
@@ -43,7 +43,7 @@ class MessagesQuery
 
   def filter_by_date(scope, value)
     return scope if filters[:limit]
-    scope.fresh
+    scope.within_thirty_days
   end
 end
 

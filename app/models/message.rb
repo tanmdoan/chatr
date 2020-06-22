@@ -8,6 +8,6 @@ class Message < ApplicationRecord
     order(created_at: :desc)
   end
 
-  scope :fresh, -> { where(created_at: 30.days.ago..Time.current) }
+  scope :within_thirty_days, -> { where(created_at: 30.days.ago..Time.current) }
 end
 
