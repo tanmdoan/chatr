@@ -1,12 +1,11 @@
 class MessagesController < ApplicationController
 
   def index
-    render :success, json: {
-      data: query_klass.resolve(
-        relation: Message.all,
-        filters: filters
-      )
-    }
+    @messages = query_klass.resolve(
+      relation: Message.all,
+      filters: filters
+    )
+    render :success, json: @messages
   end
 
   def create

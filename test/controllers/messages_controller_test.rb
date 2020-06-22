@@ -13,8 +13,8 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
     body = JSON.parse(response.body)
 
     assert_response :success
-    assert_equal(body["data"].count, 4)
-    assert_equal(body["data"].first["body"], @message.body)
+    assert_equal(body.count, 4)
+    assert_equal(body.first["body"], @message.body)
   end
 
   test "should get index" do
@@ -23,7 +23,7 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
     body = JSON.parse(response.body)
 
     assert_response :success
-    assert_equal(body["data"].count, 7)
+    assert_equal(body.count, 7)
   end
 
   test "should get index with filters" do
@@ -32,8 +32,8 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
     body = JSON.parse(response.body)
 
     assert_response :success
-    assert_equal(body["data"].count, 3)
-    assert_equal(body["data"].first["body"], @message.body)
+    assert_equal(body.count, 3)
+    assert_equal(body.first["body"], @message.body)
   end
 
 

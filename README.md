@@ -34,20 +34,9 @@ The REST API to chatr is described below.
 
 `GET /messages with filters`
 
-    curl -X GET http://localhost:3000/messages?filters%5Blimit%5D=1&filters%5Brecipient_id%5D=1&filters%5Bsender_id%5D=2
-
-translates to:
-
-    curl -X GET http://localhost:3000/messages?filters[limit]=1&filters[recipient_id]=1&filters[sender_id]=2
+    curl -X GET -g 'http://localhost:3000/messages?filters[limit]=1&filters[recipient_id]=1&filters[sender_id]=2'
 
 ### Response
-
-    HTTP/1.1 200 OK
-    Date: Thu, 24 Jun 2020 12:36:30 GMT
-    Status: 200 OK
-    Connection: close
-    Content-Type: application/json
-    Content-Length: 2
 
     [{"id":467,"recipient_id":1,"sender_id":2,"body":"Stale messages: Jon paging White Walker","created_at":"2020-05-03T02:53:51.050Z","updated_at":"2020-06-22T02:53:51.050Z"}]
 
@@ -75,4 +64,4 @@ translates to:
     X-Runtime: 0.070555
     Transfer-Encoding: chunked
 
-    {"id":500,"recipient_id":1,"sender_id":2,"body":"Foo","created_at":"2020-06-22T07:29:32.693Z","updated_at":"2020-06-22T07:29:32.693Z"}
+    {"id":111,"recipient_id":1,"sender_id":2,"body":"Foo","created_at":"2020-06-22T07:29:32.693Z","updated_at":"2020-06-22T07:29:32.693Z"}
