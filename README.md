@@ -26,19 +26,19 @@ Ruby 2.7.1
 
 The REST API to chatr is described below.
 
-## Get messages
+## Get Messages
 
-  Filters are optional `limit, recipient_id, sender_id` are all optional. When `limit` parameter is passed then results will reflect limit applied to all records ordered by most recent. Without a limit flag, the records returned are within the latest thirty days also ordered by most recent.
+  Filters are optional `limit, recipient_id, sender_id` are all optional. When `limit` parameter is passed then results will reflect limit applied to all records ordered by most recent. Without a limit flag, the records returned are within thirty days also ordered by most recent.
 
 ### Request
 
 `GET /messages with filters`
 
-    curl -X GET http://localhost:3000/messages?filters%5Blimit%5D=1&filters%5Brecipient_id%5D=9&filters%5Bsender_id%5D=9
+    curl -X GET http://localhost:3000/messages?filters%5Blimit%5D=1&filters%5Brecipient_id%5D=1&filters%5Bsender_id%5D=2
 
 translates to:
 
-    curl -X GET http://localhost:3000/messages?filters[limit]=1&filters[recipient_id]=9&filters[sender_id]=10
+    curl -X GET http://localhost:3000/messages?filters[limit]=1&filters[recipient_id]=1&filters[sender_id]=2
 
 ### Response
 
@@ -49,24 +49,30 @@ translates to:
     Content-Type: application/json
     Content-Length: 2
 
-    [{"id":467,"recipient_id":10,"sender_id":9,"body":"Stale messages: Jon paging White Walker","created_at":"2020-05-03T02:53:51.050Z","updated_at":"2020-06-22T02:53:51.050Z"}]
+    [{"id":467,"recipient_id":1,"sender_id":2,"body":"Stale messages: Jon paging White Walker","created_at":"2020-05-03T02:53:51.050Z","updated_at":"2020-06-22T02:53:51.050Z"}]
 
-## Create a new Thing
+## Create a new Message
 
 ### Request
 
 `POST /messages`
 
-    curl -i -H 'Accept: application/json' -d 'body=Foo&recipient_id=1&sender_id=1' http://localhost:3000/messages
+    curl -i -H 'Accept: application/json' -d 'body=Foo&recipient_id=1&sender_id=2' http://localhost:3000/messages
 
 ### Response
 
     HTTP/1.1 201 Created
-    Date: Thu, 24 Jun 2020 12:36:30 GMT
-    Status: 201 Created
-    Connection: close
-    Content-Type: application/json
-    Location: /thing/1
-    Content-Length: 36
+    X-Frame-Options: SAMEORIGIN
+    X-XSS-Protection: 1; mode=block
+    X-Content-Type-Options: nosniff
+    X-Download-Options: noopen
+    X-Permitted-Cross-Domain-Policies: none
+    Referrer-Policy: strict-origin-when-cross-origin
+    Content-Type: application/json; charset=utf-8
+    ETag: W/"5ad44e4084f646bb2a85095a309b722f"
+    Cache-Control: max-age=0, private, must-revalidate
+    X-Request-Id: 8bf56b66-b11c-4ab2-b297-f71b52ade9a8
+    X-Runtime: 0.070555
+    Transfer-Encoding: chunked
 
-    {"id":1,"body":"Foo","recipient_id": 1, "sender_id": 1}
+    {"id":500,"recipient_id":1,"sender_id":2,"body":"Foo","created_at":"2020-06-22T07:29:32.693Z","updated_at":"2020-06-22T07:29:32.693Z"}

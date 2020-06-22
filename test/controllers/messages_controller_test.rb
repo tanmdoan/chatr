@@ -40,7 +40,7 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
   test "it should create message" do
     post "/messages", params: { sender_id: @user_one.id, recipient_id: @user_two.id, body: 'hi' }
 
-    assert_response :success
+    assert_response :created
     assert_equal(Message.count, 9)
   end
 

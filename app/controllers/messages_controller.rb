@@ -10,9 +10,8 @@ class MessagesController < ApplicationController
   end
 
   def create
-    if Message.create!(message_params)
-      render :success
-    end
+    @message = Message.create!(message_params)
+    render json: @message, status: 201
   end
 
   private
