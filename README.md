@@ -1,6 +1,6 @@
 # Chatr API
 
-This is a simple chat api built in Rails. 
+This is a simple messaging restful API built in Rails. 
 
 ## Prerequisites
 
@@ -24,11 +24,11 @@ Ruby 2.7.1
 
 # REST API
 
-The REST API to chatr is described below.
+The REST API to Chatr is described below.
 
 ## Get Messages
 
-  Filters are optional `limit, recipient_id, sender_id` are all optional. When `limit` parameter is passed then results will reflect limit applied to all records ordered by most recent. Without a limit flag, the records returned are within thirty days also ordered by most recent.
+  Filters are optional: `limit, recipient_id, sender_id`. When `limit` parameter is passed then results will reflect limit applied to all records ordered by most recent. Without a limit flag, the records returned are within thirty days and is also ordered by most recent.
 
 ### Request
 
@@ -38,7 +38,16 @@ The REST API to chatr is described below.
 
 ### Response
 
-    [{"id":467,"recipient_id":1,"sender_id":2,"body":"Stale messages: Jon paging White Walker","created_at":"2020-05-03T02:53:51.050Z","updated_at":"2020-06-22T02:53:51.050Z"}]
+    [
+      { 
+        "id":467,
+        "recipient_id":1,
+        "sender_id":2,
+        "body":"Stale messages: Jon paging White Walker",
+        "created_at":"2020-05-03T02:53:51.050Z",
+        "updated_at":"2020-06-22T02:53:51.050Z"
+      }
+    ]
 
 ## Create a new Message
 
@@ -64,4 +73,11 @@ The REST API to chatr is described below.
     X-Runtime: 0.070555
     Transfer-Encoding: chunked
 
-    {"id":111,"recipient_id":1,"sender_id":2,"body":"Foo","created_at":"2020-06-22T07:29:32.693Z","updated_at":"2020-06-22T07:29:32.693Z"}
+    { 
+      "id":111,
+      "recipient_id":1,
+      "sender_id":2,
+      "body":"Foo",
+      "created_at":"2020-06-22T07:29:32.693Z",
+      "updated_at":"2020-06-22T07:29:32.693Z"
+    }
