@@ -2,21 +2,25 @@
 
 This is a simple chat api built in Rails. 
 
+## Prerequisites
+
+Ruby 2.7.1
+
 ## Install
 
-    bundle install
+    $ bundle install
 
 ## Migrations
 
-    rake db:prepare
+    $ rake db:prepare
 
 ## Run the app
 
-    rails s
+    $ rails s
 
 ## Run the tests
 
-    rake
+    $ rake
 
 # REST API
 
