@@ -47,7 +47,7 @@ The REST API to chatr is described below.
 
 `POST /messages`
 
-    curl -i -H 'Accept: application/json' -d 'body=Foo&recipient_id&sender_id=new' http://localhost:3000/messages
+    curl -i -H 'Accept: application/json' -d 'body=Foo&recipient_id=1&sender_id=1' http://localhost:3000/messages
 
 ### Response
 
