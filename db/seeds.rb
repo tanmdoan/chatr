@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#
+jon = User.create!(name: 'Jon Snow')
+white_walker = User.create!(name: 'Ice King')
+
+5.times do
+  Message.create!(recipient: jon, sender: white_walker, body: 'Fresh messages: White Walker paging Jon')
+end
+
+5.times do
+  Message.create!(recipient: white_walker, sender: jon, body: 'Fresh messages: Jon copy that')
+end
+
+100.times do
+  Message.create!(recipient: white_walker, sender: jon, body: 'Stale messages: Jon paging White Walker ')
+end
+
+puts "Finished seeding all messages.."
+
