@@ -17,7 +17,6 @@ class MessageTest < ActiveSupport::TestCase
   end
 
   test "should not save message when the sender and recipient is equal " do
-    skip
     sender = users(:one)
     recipient = users(:one)
 
