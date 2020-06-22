@@ -24,6 +24,14 @@ class MessagesController < ApplicationController
   end
 
   def message_params
+    # TODO: not using strong params here, but in a production refactor
+    # I would come back to convert to strong params
+    # params.require(:message).permit(
+    #   sender_id: params[:sender_id],
+    #   recipient_id: params[:recipient_id],
+    #   body: params[:body]
+    # )
+
     {
       sender_id: params[:sender_id],
       recipient_id: params[:recipient_id],
