@@ -24,11 +24,17 @@ The REST API to chatr is described below.
 
 ## Get messages
 
+  Filters are optional `limit, recipient_id, sender_id` are all optional. When `limit` parameter is passed then results will reflect limit applied to all records ordered by most recent. Without a limit flag, the records returned are within the latest thirty days also ordered by most recent.
+
 ### Request
 
-`GET /messages`
+`GET /messages with filters`
 
-    curl -X GET http://localhost:3000/messages?filters%5Blimit%5D=100&filters%5Brecipient_id%5D=9
+    curl -X GET http://localhost:3000/messages?filters%5Blimit%5D=1&filters%5Brecipient_id%5D=9&filters%5Bsender_id%5D=9
+
+translates to:
+
+    curl -X GET http://localhost:3000/messages?filters[limit]=1&filters[recipient_id]=9&filters[sender_id]=10
 
 ### Response
 
