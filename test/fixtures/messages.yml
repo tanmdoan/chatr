@@ -2,10 +2,41 @@
 
 one:
   recipient: one
-  sender: one
-  body: first message
+  sender: two
+  body: filtered message 
 
 two:
   recipient: two
+  sender: one
+  body: MyText
+
+three:
+  recipient: two
+  sender: one
+  body: MyText
+
+four:
+  recipient: two
+  sender: one
+  body: MyText
+
+five:
+  recipient: one
   sender: two
   body: MyText
+
+six:
+  recipient: one
+  sender: two
+  body: MyText
+
+seven:
+  recipient: one
+  sender: two
+  body: MyText
+
+eight:
+  recipient: one
+  sender: two
+  body: MyText
+  created_at: <%= 3.months.ago %>
